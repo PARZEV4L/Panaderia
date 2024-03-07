@@ -6,7 +6,9 @@ public class Panaderia {
 
    
     public static void main(String[] args) {
-        System.out.println("hello wordl");
+        Panadero panader = new Panadero();
+       panader.cargarArrayList("D:\\Users\\Usuario\\Documents\\NetBeansProjects\\Panaderia\\Archivos\\trabajadores.txt");
+        panader.mostrarPanaderos();
     }
     
 }
