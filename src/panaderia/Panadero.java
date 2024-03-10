@@ -69,12 +69,13 @@ public class Panadero extends Trabajador{
 
     // public  void mostrarPanaderos() {
     //     String s = "";
-    //     Iterator<Panadero>
-
-    //         s += panader.getCC() + ", "
-    //             + panader.getNombre() + " ,"
+    //     Iterator<Panadero> itrPanaderos = ArrayPanadero.iterator();
+    //     while (itrPanaderos.hasNext()) {
+    //         Panadero panader = itrPanaderos.next();
+    //         s += panader.getCc() + ", "
+    //             + panader.getNombres() + " ,"
     //             + panader.getApellidos() + " ,"
-    //             + panader.getYearsExp() + ", "
+    //             + panader.getAñosExp() + ", "
     //             + panader.getEdad()+"."
     //             + "\n";
     //     }
@@ -83,8 +84,10 @@ public class Panadero extends Trabajador{
     //     textArea.setLineWrap(true);
     //     textArea.setWrapStyleWord(true);
     //     scrollPane.setPreferredSize(new Dimension(500, 500));
-    //     JOptionPane.showMessageDialog(null, scrollPane, "Partidos", 1);
+    //     JOptionPane.showMessageDialog(null, scrollPane, "Panaderos", 1);
     // }
+
+    
 
 
 
