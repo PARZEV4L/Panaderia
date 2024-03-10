@@ -37,6 +37,7 @@ public class Panadero {
             // Obtengo los datos de los partidos de fútbol del fichero
             while (s.hasNextLine()) {
                 String linea = s.nextLine();
+                
                 String[] cortarString = linea.split(";");
                 Panadero panadero = new Panadero();
                 if (linea.charAt(0) == '1') {
