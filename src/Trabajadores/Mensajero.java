@@ -1,4 +1,4 @@
-package panaderia;
+package Trabajadores;
 
 public class Mensajero extends Trabajador{
     private String eps;

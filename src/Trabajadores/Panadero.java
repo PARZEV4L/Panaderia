@@ -1,14 +1,4 @@
-package panaderia;
-
-import java.awt.Dimension;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
-
-import javax.swing.JOptionPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+package Trabajadores;
 
 public class Panadero extends Trabajador{
 

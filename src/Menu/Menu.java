@@ -1,4 +1,4 @@
-package panaderia;
+package Menu;
 
 import javax.swing.JOptionPane;
 

@@ -1,8 +1,7 @@
-package panaderia;
+package Trabajadores;
 
 public class Trabajador {
 
-    private int ID;
     private String nombre;
     private String apellidos;
     private int CC;
@@ -20,13 +19,6 @@ public class Trabajador {
 
     }
 
-    public int getID() {
-        return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
 
     public String getNombre() {
         return nombre;
