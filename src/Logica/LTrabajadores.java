@@ -37,8 +37,8 @@ public class LTrabajadores {
             int op = 0;
             // Obtengo los datos de los partidos de fútbol del fichero
             while (s.hasNextLine()) {
-                String linea = s.nextLine();    // Obtengo una linea del fichero con los numeros
-                String[] cortarString = linea.split(";");        // Obtengo los numeros de la linea en un array
+                String linea = s.nextLine(); // Obtengo una linea del fichero con los numeros
+                String[] cortarString = linea.split(";"); // Obtengo los numeros de la linea en un array
 
                 op = Integer.parseInt(cortarString[0]);
 
@@ -63,35 +63,22 @@ public class LTrabajadores {
                         vend.setEps(cortarString[6]);
                         arrayVendedor.add(vend);
 
-
                         break;
 
                     case 3:
-
+                        Mensajero menso = new Mensajero();
+                        menso.setCC(Integer.parseInt(cortarString[1]));
+                        menso.setNombre(cortarString[2]);
+                        menso.setApellidos(cortarString[3]);
+                        menso.setEdad(Integer.parseInt(cortarString[4]));
+                        menso.setEps(cortarString[5]);
+                        menso.setArl(cortarString[6]);
+                        menso.setPension(cortarString[7]);
+                        arrayMensajero.add(menso);
                         break;
                 }
 
-
             }
-            String p = "";
-            Iterator<Panadero> itrPanaderos = arrayPanadero.iterator();
-            while (itrPanaderos.hasNext()) {
-                Panadero panader = itrPanaderos.next();
-                p += panader.getCC() + ", "
-                        + panader.getNombre() + " ,"
-                        + panader.getApellidos() + " ,"
-                        + panader.getYearsExp() + ", "
-                        + panader.getEdad()+"."
-                        + "\n";
-            }
-            JTextArea textArea = new JTextArea(p);
-            JScrollPane scrollPane = new JScrollPane(textArea);
-            textArea.setLineWrap(true);
-            textArea.setWrapStyleWord(true);
-            scrollPane.setPreferredSize(new Dimension(500, 500));
-            JOptionPane.showMessageDialog(null, scrollPane, "Panaderos", 1);
-
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -102,6 +89,105 @@ public class LTrabajadores {
                 e2.printStackTrace();
             }
         }
+    }
+
+    public void mostrarTrabajadores(int op) {
+        String s = "";
+        int p = 500, t = 300;//tamaño del JOP
+        Iterator<Mensajero> itrMensajero = arrayMensajero.iterator();
+        Iterator<Panadero> itrPanaderos = arrayPanadero.iterator();
+        Iterator<Vendedor> itrVendedor = arrayVendedor.iterator();
+        switch (op) {
+             case 1:
+             p = 400; // acorto el JOP
+                
+                while (itrPanaderos.hasNext()) {
+                    Panadero panader = itrPanaderos.next();
+                    s += "Cc: " + panader.getCC() + ", " +
+                            "Nombre: " + panader.getNombre()
+                            + " " + panader.getApellidos()
+                            + ", Experiencia: " + panader.getYearsExp()
+                            + ", Edad: " + panader.getEdad() + "."
+                            + "\n";
+                }
+                break;
+             case 2:
+              
+                while (itrVendedor.hasNext()) {
+                    Vendedor vender = itrVendedor.next();
+                    s += "Cc: " + vender.getCC() + ", " +
+                            "Nombre: " + vender.getNombre()
+                            + " " + vender.getApellidos()
+                            + ", Experiencia: " + vender.getYearsExp()
+                            + ", Edad: " + vender.getEdad()
+                            + ", EPS: " + vender.getEps()
+                            + "\n";
+                 
+                }
+                break;
+             case 3:
+             p = 600; //agrando el JOP
+                
+                 while (itrMensajero.hasNext()) {
+                    Mensajero menso = itrMensajero.next();
+                    s += "Cc: " + menso.getCC() + ", "
+                            + "Nombre: " + menso.getNombre()
+                            + " " + menso.getApellidos()
+                            + ", Edad: " + menso.getEdad()
+                            + ", EPS: " + menso.getEps()
+                            + ", Pension: " + menso.getArl()
+                            + "\n";
+                 }
+
+                 break;
+                 case 4:
+                 p = 650;
+                 t = 500;
+                 while (itrPanaderos.hasNext()||itrVendedor.hasNext()||itrMensajero.hasNext()) {
+                  
+                    if(itrPanaderos.hasNext()){
+                    Panadero panader = itrPanaderos.next();
+                    s +=    "Cargo: Panadero, " 
+                            +"Cc: " + panader.getCC() + ", " +
+                            "Nombre: " + panader.getNombre()
+                            + " " + panader.getApellidos()
+                            + ", Experiencia: " + panader.getYearsExp()
+                            + ", Edad: " + panader.getEdad() + "."
+                            + "\n";
+                    
+                   }
+                 else if(itrVendedor.hasNext()){
+                    Vendedor vender = itrVendedor.next();
+                    s += "Cargo: Vendedor, " +
+                    "Cc: " + vender.getCC() + ", " +
+                            "Nombre: " + vender.getNombre()
+                            + " " + vender.getApellidos()
+                            + ", Experiencia: " + vender.getYearsExp()
+                            + ", Edad: " + vender.getEdad()
+                            + ", EPS: " + vender.getEps()
+                            + "\n";
+                 } else{
+                    Mensajero menso = itrMensajero.next();
+                    s += "Cargo: Mensajero, "+ 
+                    "Cc: " + menso.getCC() + ", "
+                            + "Nombre: " + menso.getNombre()
+                            + " " + menso.getApellidos()
+                            + ", Edad: " + menso.getEdad()
+                            + ", EPS: " + menso.getEps()
+                            + ", Pension: " + menso.getArl()
+                            + "\n";
+                   }
+                }     
+                break;
+        
+            }
+        JTextArea textArea = new JTextArea(s);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        textArea.setLineWrap(true);
+        textArea.setWrapStyleWord(true);
+        scrollPane.setPreferredSize(new Dimension(p, t));
+        JOptionPane.showMessageDialog(null, scrollPane, "Trabajadores Panaderia", 1);
+
     }
 
     public ArrayList<Vendedor> getArrayVendedor() {
