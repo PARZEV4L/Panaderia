@@ -89,6 +89,7 @@ public class LTrabajadores {
                 e2.printStackTrace();
             }
         }
+      
     }
 
     public void mostrarTrabajadores(int op) {
@@ -189,6 +190,18 @@ public class LTrabajadores {
         JOptionPane.showMessageDialog(null, scrollPane, "Trabajadores Panaderia", 1);
 
     }
+
+    private boolean verificarCc(float Cc){
+        if(((Math.floor(Math.log10(Math.abs(Cc)))/Math.log10(6)) >= 6)||(Math.floor(Math.log10(Math.abs(Cc))) == 10)){
+            return true;
+        }
+        else{
+                return false;
+
+        }
+        
+
+    } 
 
     public ArrayList<Vendedor> getArrayVendedor() {
         return arrayVendedor;
