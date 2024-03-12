@@ -218,4 +218,57 @@ public class LTrabajadores {
     public void setArrayMensajero(ArrayList<Mensajero> arrayMensajero) {
         this.arrayMensajero = arrayMensajero;
     }
+
+    public String PromedioExp(){
+
+        Iterator<Panadero> p = arrayPanadero.iterator();
+        Iterator<Vendedor> v = arrayVendedor.iterator();
+        float sum = 0;
+        while(p.hasNext() || v.hasNext()){
+            if(p.hasNext()){
+                Panadero pan = p.next();
+                if (pan.getYearsExp()>= 2 && pan.getYearsExp() <=5){
+                    sum+=1;
+                }
+            }
+            if(v.hasNext()){
+                Vendedor ven = v.next();
+                if (ven.getYearsExp()>= 2 && ven.getYearsExp() <=5){
+                    sum+=1;
+                }
+            }
+        }
+        float prom = sum/(arrayVendedor.size()+arrayMensajero.size()+arrayPanadero.size());
+        return "Promedio de los trabajadores con años de experiencia entre 2 y 5 son: "+prom;
+    }
+
+    public Boolean Buscar(int CC){
+
+        Iterator<Panadero> p = arrayPanadero.iterator();
+        Iterator<Vendedor> v = arrayVendedor.iterator();
+        Iterator<Mensajero> m = arrayMensajero.iterator();
+
+        while(p.hasNext() || v.hasNext() || m.hasNext()){
+            if(p.hasNext()){
+                Panadero pan = p.next();
+                if (pan.getCC() == CC){
+                    return true;
+                }
+            }
+            if(v.hasNext()){
+                Vendedor ven = v.next();
+                if (ven.getCC() == CC){
+                    return true;
+                }
+            }
+            if(m.hasNext()){
+                Mensajero men = m.next();
+                if (men.getCC() == CC){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }

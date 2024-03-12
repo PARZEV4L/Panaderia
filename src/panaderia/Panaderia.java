@@ -5,6 +5,8 @@ package panaderia;
 import Logica.LTrabajadores;
 import Menu.Menu;
 
+import javax.swing.*;
+
 public class Panaderia {
 
    
@@ -13,6 +15,12 @@ public class Panaderia {
 //        menu.menu();
         LTrabajadores x = new LTrabajadores();
         x.CargarDatos();
+        //JOptionPane.showMessageDialog(null,x.PromedioExp());
+        if(x.Buscar(112233474)){
+            JOptionPane.showMessageDialog(null, "Esta");
+        }else {
+            JOptionPane.showMessageDialog(null, "NO");
+        }
     }
     
 }
