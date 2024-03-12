@@ -191,17 +191,10 @@ public class LTrabajadores {
 
     }
 
-    private boolean verificarCc(float Cc){
-        if(((Math.floor(Math.log10(Math.abs(Cc)))/Math.log10(6)) >= 6)||(Math.floor(Math.log10(Math.abs(Cc))) == 10)){
-            return true;
-        }
-        else{
-                return false;
+    private boolean verificarCc(float Cc) {
+        return ((Math.floor(Math.log10(Math.abs(Cc))) / Math.log10(6)) >= 6) || (Math.floor(Math.log10(Math.abs(Cc))) == 10) ? true : false;
+    }
 
-        }
-        
-
-    } 
 
     public ArrayList<Vendedor> getArrayVendedor() {
         return arrayVendedor;

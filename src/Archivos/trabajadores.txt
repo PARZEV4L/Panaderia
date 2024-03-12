@@ -17,7 +17,7 @@
 2;778899;Daniel;Martinez;1;19;Sura
 2;889900;Laura;Gonzalez;4;23;Coomeva
 2;990011;Diego;Diaz;2;21;Nueva EPS
-2;001122;Ana;Sanchez;5;26;Sura
+2;001122;Ana;Sanchez;5;26;Suras
 3;112233;Juan;Lopez;22;Sura;Positiva;Colpensiones
 3;223344;Maria;Gomez;24;Coomeva;Seguros Bolivar;Porvenir
 3;334455;Carlos;Rodriguez;21;Nueva EPS;Liberty Seguros;Proteccion
