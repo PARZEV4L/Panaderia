@@ -89,19 +89,19 @@ public class LTrabajadores {
                 e2.printStackTrace();
             }
         }
-      
+
     }
 
     public void mostrarTrabajadores(int op) {
         String s = "";
-        int p = 500, t = 300;//tamaño del JOP
+        int p = 500, t = 300;// tamaño del JOP
         Iterator<Mensajero> itrMensajero = arrayMensajero.iterator();
         Iterator<Panadero> itrPanaderos = arrayPanadero.iterator();
         Iterator<Vendedor> itrVendedor = arrayVendedor.iterator();
         switch (op) {
-             case 1:
-             p = 400; // acorto el JOP
-                
+            case 1:
+                p = 400; // acorto el JOP
+
                 while (itrPanaderos.hasNext()) {
                     Panadero panader = itrPanaderos.next();
                     s += "Cc: " + panader.getCC() + ", " +
@@ -112,8 +112,8 @@ public class LTrabajadores {
                             + "\n";
                 }
                 break;
-             case 2:
-              
+            case 2:
+
                 while (itrVendedor.hasNext()) {
                     Vendedor vender = itrVendedor.next();
                     s += "Cc: " + vender.getCC() + ", " +
@@ -123,13 +123,13 @@ public class LTrabajadores {
                             + ", Edad: " + vender.getEdad()
                             + ", EPS: " + vender.getEps()
                             + "\n";
-                 
+
                 }
                 break;
-             case 3:
-             p = 600; //agrando el JOP
-                
-                 while (itrMensajero.hasNext()) {
+            case 3:
+                p = 600; // agrando el JOP
+
+                while (itrMensajero.hasNext()) {
                     Mensajero menso = itrMensajero.next();
                     s += "Cc: " + menso.getCC() + ", "
                             + "Nombre: " + menso.getNombre()
@@ -138,50 +138,49 @@ public class LTrabajadores {
                             + ", EPS: " + menso.getEps()
                             + ", Pension: " + menso.getArl()
                             + "\n";
-                 }
+                }
 
-                 break;
-                 case 4:
-                 p = 650;
-                 t = 500;
-                 while (itrPanaderos.hasNext()||itrVendedor.hasNext()||itrMensajero.hasNext()) {
-                  
-                    if(itrPanaderos.hasNext()){
-                    Panadero panader = itrPanaderos.next();
-                    s +=    "Cargo: Panadero, " 
-                            +"Cc: " + panader.getCC() + ", " +
-                            "Nombre: " + panader.getNombre()
-                            + " " + panader.getApellidos()
-                            + ", Experiencia: " + panader.getYearsExp()
-                            + ", Edad: " + panader.getEdad() + "."
-                            + "\n";
-                    
-                   }
-                 else if(itrVendedor.hasNext()){
-                    Vendedor vender = itrVendedor.next();
-                    s += "Cargo: Vendedor, " +
-                    "Cc: " + vender.getCC() + ", " +
-                            "Nombre: " + vender.getNombre()
-                            + " " + vender.getApellidos()
-                            + ", Experiencia: " + vender.getYearsExp()
-                            + ", Edad: " + vender.getEdad()
-                            + ", EPS: " + vender.getEps()
-                            + "\n";
-                 } else{
-                    Mensajero menso = itrMensajero.next();
-                    s += "Cargo: Mensajero, "+ 
-                    "Cc: " + menso.getCC() + ", "
-                            + "Nombre: " + menso.getNombre()
-                            + " " + menso.getApellidos()
-                            + ", Edad: " + menso.getEdad()
-                            + ", EPS: " + menso.getEps()
-                            + ", Pension: " + menso.getArl()
-                            + "\n";
-                   }
-                }     
                 break;
-        
-            }
+            case 4:
+                p = 650;
+                t = 500;
+                while (itrPanaderos.hasNext() || itrVendedor.hasNext() || itrMensajero.hasNext()) {
+
+                    if (itrPanaderos.hasNext()) {
+                        Panadero panader = itrPanaderos.next();
+                        s += "Cargo: Panadero, "
+                                + "Cc: " + panader.getCC() + ", " +
+                                "Nombre: " + panader.getNombre()
+                                + " " + panader.getApellidos()
+                                + ", Experiencia: " + panader.getYearsExp()
+                                + ", Edad: " + panader.getEdad() + "."
+                                + "\n";
+
+                    } else if (itrVendedor.hasNext()) {
+                        Vendedor vender = itrVendedor.next();
+                        s += "Cargo: Vendedor, " +
+                                "Cc: " + vender.getCC() + ", " +
+                                "Nombre: " + vender.getNombre()
+                                + " " + vender.getApellidos()
+                                + ", Experiencia: " + vender.getYearsExp()
+                                + ", Edad: " + vender.getEdad()
+                                + ", EPS: " + vender.getEps()
+                                + "\n";
+                    } else {
+                        Mensajero menso = itrMensajero.next();
+                        s += "Cargo: Mensajero, " +
+                                "Cc: " + menso.getCC() + ", "
+                                + "Nombre: " + menso.getNombre()
+                                + " " + menso.getApellidos()
+                                + ", Edad: " + menso.getEdad()
+                                + ", EPS: " + menso.getEps()
+                                + ", Pension: " + menso.getArl()
+                                + "\n";
+                    }
+                }
+                break;
+
+        }
         JTextArea textArea = new JTextArea(s);
         JScrollPane scrollPane = new JScrollPane(textArea);
         textArea.setLineWrap(true);
@@ -192,12 +191,65 @@ public class LTrabajadores {
     }
 
     private boolean verificarCc(float Cc) {
-        return ((Math.floor(Math.log10(Math.abs(Cc))) / Math.log10(6)) >= 6) || (Math.floor(Math.log10(Math.abs(Cc))) == 10) ? true : false;
+        return ((Math.floor(Math.log10(Math.abs(Cc))) / Math.log10(6)) >= 6)
+                || (Math.floor(Math.log10(Math.abs(Cc))) == 10) ? true : false;
     }
-
 
     public ArrayList<Vendedor> getArrayVendedor() {
         return arrayVendedor;
+    }
+
+    public String PromedioExp() {
+
+        Iterator<Panadero> p = arrayPanadero.iterator();
+        Iterator<Vendedor> v = arrayVendedor.iterator();
+        float sum = 0;
+        while (p.hasNext() || v.hasNext()) {
+            if (p.hasNext()) {
+                Panadero pan = p.next();
+                if (pan.getYearsExp() >= 2 && pan.getYearsExp() <= 5) {
+                    sum += 1;
+                }
+            }
+            if (v.hasNext()) {
+                Vendedor ven = v.next();
+                if (ven.getYearsExp() >= 2 && ven.getYearsExp() <= 5) {
+                    sum += 1;
+                }
+            }
+        }
+        float prom = sum / (arrayVendedor.size() + arrayMensajero.size() + arrayPanadero.size());
+        return "Promedio de los trabajadores con años de experiencia entre 2 y 5 son: " + prom;
+    }
+
+    public Boolean Buscar(int CC) {
+
+        Iterator<Panadero> p = arrayPanadero.iterator();
+        Iterator<Vendedor> v = arrayVendedor.iterator();
+        Iterator<Mensajero> m = arrayMensajero.iterator();
+
+        while (p.hasNext() || v.hasNext() || m.hasNext()) {
+            if (p.hasNext()) {
+                Panadero pan = p.next();
+                if (pan.getCC() == CC) {
+                    return true;
+                }
+            }
+            if (v.hasNext()) {
+                Vendedor ven = v.next();
+                if (ven.getCC() == CC) {
+                    return true;
+                }
+            }
+            if (m.hasNext()) {
+                Mensajero men = m.next();
+                if (men.getCC() == CC) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     public void setArrayVendedor(ArrayList<Vendedor> arrayVendedor) {
