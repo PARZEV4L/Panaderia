@@ -136,7 +136,8 @@ public class LTrabajadores {
                             + " " + menso.getApellidos()
                             + ", Edad: " + menso.getEdad()
                             + ", EPS: " + menso.getEps()
-                            + ", Pension: " + menso.getArl()
+                            + ", ARL: " + menso.getArl()
+                            + ", Pension: " + menso.getPension()
                             + "\n";
                 }
 
@@ -168,13 +169,13 @@ public class LTrabajadores {
                                 + "\n";
                     } else {
                         Mensajero menso = itrMensajero.next();
-                        s += "Cargo: Mensajero, " +
-                                "Cc: " + menso.getCC() + ", "
+                        s += "Cc: " + menso.getCC() + ", "
                                 + "Nombre: " + menso.getNombre()
                                 + " " + menso.getApellidos()
                                 + ", Edad: " + menso.getEdad()
                                 + ", EPS: " + menso.getEps()
-                                + ", Pension: " + menso.getArl()
+                                + ", ARL: " + menso.getArl()
+                                + ", Pension: " + menso.getPension()
                                 + "\n";
                     }
                 }
@@ -195,8 +196,8 @@ public class LTrabajadores {
                 || (Math.floor(Math.log10(Math.abs(Cc))) == 10) ? true : false;
     }
 
-    public ArrayList<Vendedor> getArrayVendedor() {
-        return arrayVendedor;
+    private boolean verificarEdad(int edad) {
+        return edad >= 18 ? true : false;
     }
 
     public String PromedioExp() {
@@ -250,6 +251,153 @@ public class LTrabajadores {
         }
 
         return false;
+    }
+
+    public void agregarLTrabajador(int op) {
+        int Cc, edad;
+        Cc = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese Cedula: "));
+        edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese edad: "));
+        while (!verificarCc(Cc) || !verificarEdad(edad)) {
+            if (!verificarCc(Cc)) {
+                Cc = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese Cedula de 6 a 10 digitos: "));
+            }
+            if (!verificarEdad(edad)) {
+                edad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese edad, mayor de 18: "));
+            }
+
+        }
+
+        if (!Buscar(Cc)) {
+            switch (op) {
+                case 1:
+                    Panadero pan = new Panadero();
+                    pan.setCC(Cc);
+                    pan.setNombre(JOptionPane.showInputDialog(null, "Ingrese nombre: "));
+                    pan.setApellidos(JOptionPane.showInputDialog(null, "Ingrese apellido: "));
+                    pan.setYearsExp(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese Experiencia: ")));
+                    pan.setEdad(edad);
+                    arrayPanadero.add(pan);
+                    break;
+
+                case 2:
+                    Vendedor vend = new Vendedor();
+                    vend.setCC(Cc);
+                    vend.setNombre(JOptionPane.showInputDialog(null, "Ingrese nombre: "));
+                    vend.setApellidos(JOptionPane.showInputDialog(null, "Ingrese apellido: "));
+                    vend.setYearsExp(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese Experiencia: ")));
+                    vend.setEdad(edad);
+                    vend.setEps(menuEPS());
+                    arrayVendedor.add(vend);
+
+                    break;
+
+                case 3:
+                    Mensajero menso = new Mensajero();
+                    menso.setCC(Cc);
+                    menso.setNombre(JOptionPane.showInputDialog(null, "Ingrese nombre: "));
+                    menso.setApellidos(JOptionPane.showInputDialog(null, "Ingrese apellido: "));
+                    menso.setEdad(edad);
+                    menso.setEps(menuEPS());
+                    menso.setArl(menuARL());
+                    menso.setPension(menuPension());
+                    arrayMensajero.add(menso);
+                    break;
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, " La cedula ingresada ya existe");
+        }
+
+    }
+
+    private String menuEPS() {
+        int op;
+
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "----------Seleccion EPS----------"
+                    + "\n1.Sura\n"
+                    + "2.Savia Salud\n"
+                    + "3.SANITAS S.A."));
+            switch (op) {
+                case 1:
+                    return "Sura";
+
+                case 2:
+                    return "Savia Salud";
+
+                case 3:
+                    return "SANITAS S.A.";
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Por favor digire un numero correcto");
+                    break;
+            }
+
+        } while (op != 1 && op != 2 && op != 3);
+
+        return null;
+
+    }
+
+    private String menuARL() {
+        int op;
+
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "----------Seleccion arl----------\n"
+                    + "1.Sura\n"
+                    + "2.Positiva\n"
+                    + "3.Colmena"));
+            switch (op) {
+                case 1:
+                    return "Sura";
+
+                case 2:
+                    return "Positiva";
+
+                case 3:
+                    return "Colmena";
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Por favor digire un numero correcto");
+                    break;
+            }
+
+        } while (op != 1 && op != 2 && op != 3);
+
+        return null;
+
+    }
+
+    private String menuPension() {
+        int op;
+
+        do {
+            op = Integer.parseInt(JOptionPane.showInputDialog(null, "----------Seleccion Pension----------\n"
+                    + "1.Colpensiones\n"
+                    + "2.Colfondos\n"
+                    + "3.Porvenir"));
+            switch (op) {
+                case 1:
+                    return "Colpensiones";
+
+                case 2:
+                    return "Colfonodos";
+
+                case 3:
+                    return "Porvenir";
+
+                default:
+                    JOptionPane.showMessageDialog(null, "Por favor digire un numero correcto");
+                    break;
+            }
+
+        } while (op != 1 && op != 2 && op != 3);
+
+        return null;
+
+    }
+
+    public ArrayList<Vendedor> getArrayVendedor() {
+        return arrayVendedor;
     }
 
     public void setArrayVendedor(ArrayList<Vendedor> arrayVendedor) {

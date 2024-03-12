@@ -14,7 +14,8 @@ public class Panaderia {
 //        Menu menu = new Menu();
 //        menu.menu();
         LTrabajadores x = new LTrabajadores();
-        x.CargarDatos();
+        Menu menu = new Menu();
+        menu.menu();
     }
     
 }
