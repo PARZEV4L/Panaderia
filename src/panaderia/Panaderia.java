@@ -16,7 +16,7 @@ public class Panaderia {
         LTrabajadores x = new LTrabajadores();
         x.CargarDatos();
         //JOptionPane.showMessageDialog(null,x.PromedioExp());
-        if(x.Buscar(112233474)){
+        if(x.Buscar(889900)){
             JOptionPane.showMessageDialog(null, "Esta");
         }else {
             JOptionPane.showMessageDialog(null, "NO");
