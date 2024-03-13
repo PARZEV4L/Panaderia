@@ -380,7 +380,7 @@ public class LTrabajadores {
                     return "Colpensiones";
 
                 case 2:
-                    return "Colfonodos";
+                    return "Colfondos";
 
                 case 3:
                     return "Porvenir";
@@ -393,6 +393,21 @@ public class LTrabajadores {
         } while (op != 1 && op != 2 && op != 3);
 
         return null;
+
+    }
+
+    public void NombrePension(int op){
+        String []vect = {"Colpensiones","Colfondos","Porvenir"};
+        String s = "-----Nombres de los trabajadores con la pension "+vect[op-1]+"-----\n\n";
+            Iterator<Mensajero> itrM = arrayMensajero.iterator();
+        while (itrM.hasNext()) {
+            Mensajero menso = itrM.next();
+            if(menso.getPension().equals(vect[op-1])){
+                s+= menso.getNombre() + " "+ menso.getApellidos()+"\n";
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, s);
 
     }
 
