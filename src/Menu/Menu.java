@@ -49,7 +49,7 @@ public class Menu {
                 case 5:
                     if (x.getArrayPanadero() != null) {
                         String p = x.menuEPS();
-                        JOptionPane.showInputDialog(null, x.Porcentaje(p));
+                        JOptionPane.showMessageDialog(null,x.Porcentaje(p));
                     } else {
                         JOptionPane.showMessageDialog(null, "No se ha cargado los datos");
                     }
