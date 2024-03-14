@@ -32,11 +32,7 @@ public class Menu {
                 case 3:
                     if (x.getArrayPanadero() != null) {
                         int cc = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la cedula del trabajador"));
-                        if (x.Buscar(cc)) {
-                            JOptionPane.showMessageDialog(null, "El trabajador si esta registrado");
-                        } else {
-                            JOptionPane.showMessageDialog(null, "EL trabajador no esta registrado");
-                        }
+                        JOptionPane.showMessageDialog(null,x.Buscar(cc));
                     } else {
                         JOptionPane.showMessageDialog(null, "No se ha cargado los datos");
                     }

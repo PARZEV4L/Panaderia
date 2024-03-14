@@ -226,7 +226,62 @@ public class LTrabajadores {
         return "Promedio de los trabajadores con años de experiencia entre 2 y 5 son: " + prom;
     }
 
-    public Boolean Buscar(int CC) {
+    public String Buscar(int CC) {
+
+        Iterator<Panadero> p = arrayPanadero.iterator();
+        Iterator<Vendedor> v = arrayVendedor.iterator();
+        Iterator<Mensajero> m = arrayMensajero.iterator();
+        String s = "";
+        while (p.hasNext() || v.hasNext() || m.hasNext()) {
+            if (p.hasNext()) {
+                Panadero pan = p.next();
+                if (pan.getCC() == CC) {
+
+                    s = "Panadero\n"
+                            + "Cc: " + pan.getCC() + ", " +
+                            "Nombre: " + pan.getNombre()
+                            + " " + pan.getApellidos()
+                            + ", Experiencia: " + pan.getYearsExp()
+                            + ", Edad: " + pan.getEdad() + "."
+                            + "\n";
+                    return s;
+                }
+            }
+            if (v.hasNext()) {
+                Vendedor ven = v.next();
+                if (ven.getCC() == CC) {
+                    s += "Cargo: Vendedor, " +
+                            "Cc: " + ven.getCC() + ", " +
+                            "Nombre: " + ven.getNombre()
+                            + " " + ven.getApellidos()
+                            + ", Experiencia: " + ven.getYearsExp()
+                            + ", Edad: " + ven.getEdad()
+                            + ", EPS: " + ven.getEps()
+                            + "\n";
+                    return s;
+                }
+            }
+            if (m.hasNext()) {
+                Mensajero men = m.next();
+                if (men.getCC() == CC) {
+                    s = "Mensajero\n"
+                            + "Cc: " + men.getCC() + ", "
+                            + "Nombre: " + men.getNombre()
+                            + " " + men.getApellidos()
+                            + ", Edad: " + men.getEdad()
+                            + ", EPS: " + men.getEps()
+                            + ", ARL: " + men.getArl()
+                            + ", Pension: " + men.getPension()
+                            + "\n";
+
+                    return s;
+                }
+            }
+        }
+
+        return "No se ha encontrado el trabajador";
+    }
+    public Boolean Buscarb(int CC) {
 
         Iterator<Panadero> p = arrayPanadero.iterator();
         Iterator<Vendedor> v = arrayVendedor.iterator();
@@ -236,6 +291,8 @@ public class LTrabajadores {
             if (p.hasNext()) {
                 Panadero pan = p.next();
                 if (pan.getCC() == CC) {
+
+
                     return true;
                 }
             }
@@ -270,7 +327,7 @@ public class LTrabajadores {
 
         }
 
-        if (!Buscar(Cc)) {
+        if (!Buscarb(Cc)) {
             switch (op) {
                 case 1:
                     Panadero pan = new Panadero();
@@ -335,7 +392,7 @@ public class LTrabajadores {
             }
             for (Mensajero menso : arrayMensajero) {
                 escribo = "3;" + menso.getCC() + ";" + menso.getNombre() + ";" + menso.getApellidos() + ";"
-                       + menso.getEdad() + ";" + menso.getEps() + ";" + menso.getArl() + ";" + menso.getPension()
+                        + menso.getEdad() + ";" + menso.getEps() + ";" + menso.getArl() + ";" + menso.getPension()
                         + "\n";
                 escritura.write(escribo);
             }
@@ -435,7 +492,7 @@ public class LTrabajadores {
     }
 
     public void NombrePension(int op) {
-        String[] vect = { "Colpensiones", "Colfondos", "Porvenir" };
+        String[] vect = {"Colpensiones", "Colfondos", "Porvenir"};
         String s = "-----Nombres de los trabajadores con la pension " + vect[op - 1] + "-----\n\n";
         Iterator<Mensajero> itrM = arrayMensajero.iterator();
         while (itrM.hasNext()) {
