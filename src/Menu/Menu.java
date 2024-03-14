@@ -14,12 +14,12 @@ public class Menu {
                     + "2.Ingresar un trabajador.\n"
                     + "3.Buscar un trabajador.\n"
                     + "4.Promedio de trabajadores que tienen como años de experiencia entre 2 y 5.\n"
-                    + "5.Promedio de trabajadores que tienen como años de experiencia entre 2 y 5.\n"
+                    + "5.Porcentaje de trabajadores de una eps.\n"
                     + "6.Nombres de los trabajadores donde la pensión es \"Porvenir\".\n"
                     + "0.Salir\n"));
             switch (op) {
                 case 1:
-
+                    x.CargarDatos();
                     break;
                 case 2:
                 int tTra = menuT();
@@ -35,7 +35,7 @@ public class Menu {
 
                     break;
                 case 5:
-
+                    JOptionPane.showMessageDialog(null,x.Porcentaje("Sura"));
                     break;
                 case 6:
                    

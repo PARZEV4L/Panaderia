@@ -396,6 +396,34 @@ public class LTrabajadores {
 
     }
 
+    public String Porcentaje(String eps) {
+
+        Iterator<Mensajero> m = arrayMensajero.iterator();
+        Iterator<Vendedor> v = arrayVendedor.iterator();
+        float sum = 0;
+        while (m.hasNext() || v.hasNext()) {
+            if (m.hasNext()) {
+                Mensajero men = m.next();
+                System.out.println(men.getEps());
+                if (men.getEps().equals(eps)) {
+                    sum += 1;
+                }
+            }
+            if (v.hasNext()) {
+                Vendedor ven = v.next();
+                if (ven.getEps().equals(eps)) {
+                    sum += 1;
+                }
+            }
+        }
+        float prom = (sum * 100) / (arrayVendedor.size() + arrayMensajero.size() + arrayPanadero.size());
+        if (sum == 0) {
+            return "No hay trabajadores con la eps " + eps;
+        } else {
+            return "El " + prom + "% de los trabajadores tiene eps " + eps;
+        }
+    }
+
     public ArrayList<Vendedor> getArrayVendedor() {
         return arrayVendedor;
     }
