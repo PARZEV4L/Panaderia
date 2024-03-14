@@ -4,27 +4,27 @@
 1;456789;Ana;Martinez;6;30
 1;567890;Pablo;Rodriguez;4;22
 1;678901;Laura;Hernandez;7;29
-1;789012;Luis;Gonzalez;2;20
+1;789012;Luis;Gonzalez;20;20
 1;890123;Marta;Diaz;9;40
 1;901234;Pedro;Sanchez;4;26
-1;012345;Julia;Ramirez;5;27
-2;112233;Andres;Gomez;3;22;Sura
-2;223344;Carolina;Vargas;6;28;Coomeva
-2;334455;David;Perez;2;20;Nueva EPS
-2;445566;Maria;Lopez;5;25;Sura
-2;556677;Javier;Ramirez;4;24;Coomeva
-2;667788;Alejandra;Rodriguez;7;30;Nueva EPS
-2;778899;Daniel;Martinez;1;19;Sura
-2;889900;Laura;Gonzalez;4;23;Coomeva
-2;990011;Diego;Diaz;2;21;Nueva EPS
-2;001122;Ana;Sanchez;5;26;Sura
-3;112233;Juan;Lopez;22;Sura;Positiva;Colpensiones
-3;223344;Maria;Gomez;24;Coomeva;Seguros Bolivar;Porvenir
-3;334455;Carlos;Rodriguez;21;Nueva EPS;Liberty Seguros;Proteccion
-3;445566;Laura;Martinez;23;Sura;Colmena Seguros;Colfondos
-3;556677;Javier;Perez;25;Coomeva;Seguros del Estado;Porvenir
-3;667788;Ana;Ramirez;27;Nueva EPS;Positiva;Colpensiones
-3;778899;Jose;Gonzalez;20;Sura;Seguros Bolivar;Proteccion
-3;889900;Carolina;Diaz;22;Coomeva;Liberty Seguros;Colfondos
-3;990011;Andres;Sanchez;26;Nueva EPS;Colmena Seguros;Porvenir
-3;001122;Julia;Vargas;28;Sura;Seguros del Estado;Colpensiones
+1;987654;Andrea;Gomez;3;23
+2;1234567;David;Perez;7;32;Sura
+2;2345678;Carolina;Vargas;5;25;Savia Salud
+2;3456789;Javier;Ramirez;8;28;SANITAS S.A.
+2;4567890;Alejandro;Martinez;3;21;Sura
+2;5678901;Patricia;Rodriguez;6;27;Savia Salud
+2;6789012;Manuel;Gonzalez;4;24;SANITAS S.A.
+2;7890123;Sofia;Lopez;9;35;Sura
+2;8901234;Gabriel;Hernandez;20;19;Savia Salud
+2;9012345;Valentina;Gomez;5;26;Savia Salud
+2;9876543;Diana;Perez;6;31;SANITAS S.A.
+3;543210;Raul;Gomez;22;Sura;Sura;Colpensiones
+3;654321;Daniela;Lopez;25;SANITAS S.A.;Savia Salud;Colfondos
+3;765432;Oscar;Martinez;30;Sura;Colmena;Porvenir
+3;876543;Isabel;Gonzalez;28;Savia Salud;Sura;Colpensiones
+3;987654;Camilo;Hernandez;26;SANITAS S.A.;Positiva;Porvenir
+3;198765;Laura;Garcia;24;Sura;Sura;Colfondos
+3;109876;Fernando;Sanchez;29;SANITAS S.A.;Positiva;Colfondos
+3;210987;Sara;Perez;23;Sura;Savia Salud;Porvenir
+3;321098;Diego;Ramirez;27;Savia Salud;Positiva;Colpensiones
+3;432109;Natalia;Gonzalez;31;Sura;Colmena;Porvenir

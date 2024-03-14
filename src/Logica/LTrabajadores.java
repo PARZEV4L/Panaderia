@@ -7,6 +7,8 @@ import Trabajadores.Vendedor;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -20,13 +22,12 @@ public class LTrabajadores {
     private String sfichero = "src/Archivos/trabajadores.txt";
 
     public LTrabajadores() {
-
-        this.arrayVendedor = new ArrayList<>();
-        this.arrayPanadero = new ArrayList<>();
-        this.arrayMensajero = new ArrayList<>();
     }
 
     public void CargarDatos() {
+        this.arrayVendedor = new ArrayList<>();
+        this.arrayPanadero = new ArrayList<>();
+        this.arrayMensajero = new ArrayList<>();
         File fichero = new File(sfichero);
         Scanner s = null;
 
@@ -79,6 +80,7 @@ public class LTrabajadores {
                 }
 
             }
+            JOptionPane.showMessageDialog(null, "Se han cargado los datos");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -220,6 +222,7 @@ public class LTrabajadores {
             }
         }
         float prom = sum / (arrayVendedor.size() + arrayMensajero.size() + arrayPanadero.size());
+
         return "Promedio de los trabajadores con años de experiencia entre 2 y 5 son: " + prom;
     }
 
@@ -303,13 +306,48 @@ public class LTrabajadores {
                     arrayMensajero.add(menso);
                     break;
             }
+            this.crearArchivo();
         } else {
             JOptionPane.showMessageDialog(null, " La cedula ingresada ya existe");
         }
 
     }
 
-    private String menuEPS() {
+    public void crearArchivo() {
+        File fichero = new File("src\\Archivos\\Trabajadores2.txt");
+        String escribo = "";
+
+        try {
+            FileWriter escritura = new FileWriter(fichero);
+
+            for (Panadero pana : arrayPanadero) {
+                escribo = "1;" + pana.getCC() + ";" + pana.getNombre() + ";" + pana.getApellidos() + ";"
+                        + pana.getYearsExp()
+                        + ";" + pana.getEdad() + "\n";
+                escritura.write(escribo);
+            }
+
+            for (Vendedor vender : arrayVendedor) {
+                escribo = "2;" + vender.getCC() + ";" + vender.getNombre() + ";" + vender.getApellidos() + ";"
+                        + vender.getYearsExp()
+                        + ";" + vender.getEdad() + ";" + vender.getEps() + "\n";
+                escritura.write(escribo);
+            }
+            for (Mensajero menso : arrayMensajero) {
+                escribo = "3;" + menso.getCC() + ";" + menso.getNombre() + ";" + menso.getApellidos() + ";"
+                       + menso.getEdad() + ";" + menso.getEps() + ";" + menso.getArl() + ";" + menso.getPension()
+                        + "\n";
+                escritura.write(escribo);
+            }
+            escritura.close();
+
+        } catch (IOException Exception) {
+            Exception.printStackTrace(System.out);
+
+        }
+    }
+
+    public String menuEPS() {
         int op;
 
         do {
@@ -380,7 +418,7 @@ public class LTrabajadores {
                     return "Colpensiones";
 
                 case 2:
-                    return "Colfonodos";
+                    return "Colfondos";
 
                 case 3:
                     return "Porvenir";
@@ -393,6 +431,21 @@ public class LTrabajadores {
         } while (op != 1 && op != 2 && op != 3);
 
         return null;
+
+    }
+
+    public void NombrePension(int op) {
+        String[] vect = { "Colpensiones", "Colfondos", "Porvenir" };
+        String s = "-----Nombres de los trabajadores con la pension " + vect[op - 1] + "-----\n\n";
+        Iterator<Mensajero> itrM = arrayMensajero.iterator();
+        while (itrM.hasNext()) {
+            Mensajero menso = itrM.next();
+            if (menso.getPension().equals(vect[op - 1])) {
+                s += menso.getNombre() + " " + menso.getApellidos() + "\n";
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, s);
 
     }
 
