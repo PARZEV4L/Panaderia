@@ -145,7 +145,7 @@ public class LTrabajadores {
 
                 break;
             case 4:
-                p = 650;
+                p = 700;
                 t = 500;
                 while (itrPanaderos.hasNext() || itrVendedor.hasNext() || itrMensajero.hasNext()) {
 
@@ -171,7 +171,8 @@ public class LTrabajadores {
                                 + "\n";
                     } else {
                         Mensajero menso = itrMensajero.next();
-                        s += "Cc: " + menso.getCC() + ", "
+                        s += "Cargo: Mensajero, "+
+                                "Cc: " + menso.getCC() + ", "
                                 + "Nombre: " + menso.getNombre()
                                 + " " + menso.getApellidos()
                                 + ", Edad: " + menso.getEdad()
@@ -457,7 +458,6 @@ public class LTrabajadores {
         while (m.hasNext() || v.hasNext()) {
             if (m.hasNext()) {
                 Mensajero men = m.next();
-                System.out.println(men.getEps());
                 if (men.getEps().equals(eps)) {
                     sum += 1;
                 }
