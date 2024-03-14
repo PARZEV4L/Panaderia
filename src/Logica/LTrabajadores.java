@@ -7,6 +7,8 @@ import Trabajadores.Vendedor;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -309,6 +311,40 @@ public class LTrabajadores {
 
     }
 
+    public void crearArchivo() {
+        File fichero = new File("src\\Archivos\\Trabajadores2.txt");
+        String escribo = "";
+
+        try {
+            FileWriter escritura = new FileWriter(fichero);
+
+            for (Panadero pana : arrayPanadero) {
+                escribo = "1;" + pana.getCC() + ";" + pana.getNombre() + ";" + pana.getApellidos() + ";"
+                        + pana.getYearsExp()
+                        + ";" + pana.getEdad() + "\n";
+                escritura.write(escribo);
+            }
+
+            for (Vendedor vender : arrayVendedor) {
+                escribo = "2;" + vender.getCC() + ";" + vender.getNombre() + ";" + vender.getApellidos() + ";"
+                        + vender.getYearsExp()
+                        + ";" + vender.getEdad() + ";" + vender.getEps() + "\n";
+                escritura.write(escribo);
+            }
+            for (Mensajero menso : arrayMensajero) {
+                escribo = "3;" + menso.getCC() + ";" + menso.getNombre() + ";" + menso.getApellidos() + ";"
+                       + menso.getEdad() + ";" + menso.getEps() + ";" + menso.getArl() + ";" + menso.getPension()
+                        + "\n";
+                escritura.write(escribo);
+            }
+            escritura.close();
+
+        } catch (IOException Exception) {
+            Exception.printStackTrace(System.out);
+
+        }
+    }
+
     private String menuEPS() {
         int op;
 
@@ -396,14 +432,14 @@ public class LTrabajadores {
 
     }
 
-    public void NombrePension(int op){
-        String []vect = {"Colpensiones","Colfondos","Porvenir"};
-        String s = "-----Nombres de los trabajadores con la pension "+vect[op-1]+"-----\n\n";
-            Iterator<Mensajero> itrM = arrayMensajero.iterator();
+    public void NombrePension(int op) {
+        String[] vect = { "Colpensiones", "Colfondos", "Porvenir" };
+        String s = "-----Nombres de los trabajadores con la pension " + vect[op - 1] + "-----\n\n";
+        Iterator<Mensajero> itrM = arrayMensajero.iterator();
         while (itrM.hasNext()) {
             Mensajero menso = itrM.next();
-            if(menso.getPension().equals(vect[op-1])){
-                s+= menso.getNombre() + " "+ menso.getApellidos()+"\n";
+            if (menso.getPension().equals(vect[op - 1])) {
+                s += menso.getNombre() + " " + menso.getApellidos() + "\n";
             }
         }
 

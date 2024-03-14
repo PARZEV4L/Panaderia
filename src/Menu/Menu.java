@@ -20,6 +20,7 @@ public class Menu {
             switch (op) {
                 case 1:
                 x.CargarDatos();
+                x.crearArchivo();
 
                     break;
                 case 2:
